@@ -10,7 +10,8 @@ public class PromoPage {
     private final WebDriver driver;
 
     private By hargaSpesialTitle = By.xpath(".//h2[text()='Harga Spesial']");
-    private By imageLink = By.xpath(".//img[@alt='Akomodasi Favorit']");
+    //private By imageLink = By.xpath(".//img[@alt='Akomodasi Favorit']");
+    private By promoButton = By.xpath(".//button[text()='Lihat Promo']");
 
     public PromoPage(WebDriver driver){
         this.driver = driver;
@@ -23,7 +24,7 @@ public class PromoPage {
         executor.executeScript(script, hargaSpesial);
     }
 
-    public void clickImage(){
-        driver.findElements(imageLink).get(0).click();
+    public void clickButton(){
+        driver.findElements(promoButton).get(6).click();
     }
 }

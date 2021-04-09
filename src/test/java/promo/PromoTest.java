@@ -15,7 +15,7 @@ public class PromoTest extends BaseTest {
         PromoPage promoPage = homePage.clickPromoLink();
         promoPage.scrollToHargaSpesialTitle();
         takeScreenshot("testPromoPage");
-        promoPage.clickImage();
+        promoPage.clickButton();
         getWindowManager().switchToTab("FLASH SALE");
         FlashSalePage flashSalePage = new FlashSalePage(driver);
         Assert.assertEquals(flashSalePage.getLabelText(),
