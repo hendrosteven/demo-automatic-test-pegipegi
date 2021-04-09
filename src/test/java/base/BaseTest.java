@@ -10,6 +10,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import page.HomePage;
+import utils.WindowManager;
 
 import javax.annotation.Nullable;
 import java.io.File;
@@ -20,7 +21,7 @@ import java.util.Objects;
 
 public class BaseTest {
 
-    private WebDriver driver;
+    protected WebDriver driver;
     protected HomePage homePage;
 
     @BeforeClass
@@ -44,7 +45,6 @@ public class BaseTest {
         Files.move(screenshot,
                     new File("screenshot/" + currentDateTime()
                             + "_" + result.getName() + ".png"));
-
     }
 
     public void takeScreenshot(String testName) throws IOException {
@@ -59,6 +59,10 @@ public class BaseTest {
     private String currentDateTime(){
         SimpleDateFormat sdm = new SimpleDateFormat("yyyy-dd-MM HH:mm:ss");
         return sdm.format(new Date());
+    }
+
+    public WindowManager getWindowManager(){
+        return new WindowManager(driver);
     }
 
 }

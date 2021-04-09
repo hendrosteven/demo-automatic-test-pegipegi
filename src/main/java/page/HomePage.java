@@ -14,8 +14,9 @@ public class HomePage {
     private final By roomCount = By.xpath(".//select[@name='roomCount']");
     private final By formButton = By.xpath(".//button[text()=' Cari']");
     private final By resultLeft = By.className("resultLeft");
-
     private final By title = By.xpath(".//h1[@class='title']");
+
+    private final By promoLink = By.className("promo-icon");
 
     public HomePage(WebDriver driver){
         this.driver = driver;
@@ -58,5 +59,10 @@ public class HomePage {
     public SearchResultPage clickFormButton(){
         driver.findElement(formButton).click();
         return new SearchResultPage(driver);
+    }
+
+    public PromoPage clickPromoLink(){
+        driver.findElement(promoLink).click();
+        return new PromoPage(driver);
     }
 }
